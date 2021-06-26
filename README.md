@@ -3,26 +3,33 @@ A Python based audio trigger alert system for EverQuest.  With Discord Bot suppo
 
 Author: Dr. Ronny Bull (A.K.A. Cubber on http://eqemultor.org)
         Extended by Jez McKinley (A.K.A. Tabashir on TAKP and P1999)
+		Forked and extended by Rennil (Antonious Bayle)
 
 Python Version: 3.5
 
 Original Date: 11/12/2017
 
-Last Revision: 11/27/2017
+Last Revision: 2021/06/26
 
 Purpose:  This program is intended to run on a Linux system running 'EverQuest' under 'Wine'.
           When running the program will parse your EverQuest chat log file for key phrases
           contained in the Config.py file and trigger alerts using the flite TTS engine.
           Ideas from: http://everquest.fanra.info/wiki/Raid_audio_triggers
 
-Dependencies: * Python 3.5 
+Dependencies: * Python 3.5
               * CMU Flite text to speech engine for audio notifications
               * urxvt terminal emulator for visual notifications
-              * Discord version requires discord.py library: 
+              * Discord version requires discord.py library:
                   python3 -m pip install --user -U discord.py[voice]
 
 
 IMPORTANT: Verify that your 'eqclient.ini' file contains the following line: LOG=TRUE, and that your game path is setup properly in Config.py.
+
+How to run for now:
+- Create a venv (not strictly required) `python -m venv venv && source ./venv/bin/activate`
+- `pip install pyyaml`
+- `cd eqalerter`
+- `./EQAlerter.py`
 
 # FAQ
 
@@ -63,14 +70,14 @@ A. Because I use Linux and am a Linux developer, and I develop this in my limite
 
 Q. What raid events are supported by EQAlerter?
 
-A. EQAlerter supports the following raid events: 
+A. EQAlerter supports the following raid events:
 
-	- RoF(A Matter of Life and Death - Chapterhouse, Dispelling the Shadows - Plane of Shadow, Glimpse the Unseen - The Threshold, Ulrich the Ageless - The Threshold, Monarch Widow - The Threshold, 
+	- RoF(A Matter of Life and Death - Chapterhouse, Dispelling the Shadows - Plane of Shadow, Glimpse the Unseen - The Threshold, Ulrich the Ageless - The Threshold, Monarch Widow - The Threshold,
 		An End to Fear - The Epicenter)
-	- CoF(Bixie Warfront: Pelzias Plot, The Dead Hills: Xulous Prime, Neriak - Fourth Gate: Houses of Thex, Neriak - Fourth Gate: Hate Rising, Tower of Rot: Lord Kyle Bayle, Argin-Hiz: Burn Out, 
+	- CoF(Bixie Warfront: Pelzias Plot, The Dead Hills: Xulous Prime, Neriak - Fourth Gate: Houses of Thex, Neriak - Fourth Gate: Hate Rising, Tower of Rot: Lord Kyle Bayle, Argin-Hiz: Burn Out,
 		The Void (H): The Journey Home)
 	- TDS(Defense of the City, Principal Quastori Numicia, Praetor Vitio, Principal Vicarum Nomia)
-	- TBM( Plane of Hate: Revisited - Maestro of Rancor & Innorukk, Anashti Sul - Lady of Life, Wither and Decay, Grannus of the Cleansing Steam, Stem the Tide, Grummus!, High Bokon Boromas, 
+	- TBM( Plane of Hate: Revisited - Maestro of Rancor & Innorukk, Anashti Sul - Lady of Life, Wither and Decay, Grannus of the Cleansing Steam, Stem the Tide, Grummus!, High Bokon Boromas,
 		Anashti Sul - Enslaver of Souls)
 	- EoK(Doorstep of War - Lceanium, The Summoning of Droga - Droga, Prince Selrach Dizok - Chardok, Queen Velazul Dizok - Chardok)
 	- Anniversary(The Plane of War: 15th anniversary, 17th Anniversary raid - Hates Fury: Seventeen Pieces of Silver)
@@ -78,7 +85,7 @@ A. EQAlerter supports the following raid events:
 
 Q. What is GuildChat-Discord.py?
 
-A. A stand-alone program created to relay guild chat messages from a character log file to a private guild chat channel on Discord.  
+A. A stand-alone program created to relay guild chat messages from a character log file to a private guild chat channel on Discord.
 
 # Additions by Jez
 
@@ -88,7 +95,7 @@ Q. What other triggers are supported?
 
 A. Current implemented list:
 
-* All forms of invisibility dropping as well 
+* All forms of invisibility dropping as well
 * Feign death failures and breaks.
 * Spell worn off
 * Root/Charm breaks
@@ -97,7 +104,7 @@ A. Current implemented list:
 Q. What other features does it have?
 A. Timers and Ignores
 
-* Timers are so that you know when to refresh a spell, for example, Mez, Fascinate etc. On a mez landing, it will pop up a separate console window (currently set to urxvt) that will count down, then issue an audible warning and notification to refresh. 
+* Timers are so that you know when to refresh a spell, for example, Mez, Fascinate etc. On a mez landing, it will pop up a separate console window (currently set to urxvt) that will count down, then issue an audible warning and notification to refresh.
 
 * Ignores are so that you can get an alert on a class of events, but don't want a subset of them to alert you. For example, you want a tell from a player to notify, but don't want one when a vendor 'tells you that will be 10 plat'
 
